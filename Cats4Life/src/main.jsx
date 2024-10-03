@@ -1,8 +1,15 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import App from './App';
+import Checkout from './Checkout';
 
-createRoot(document.getElementById('root')).render(
-    <App />
-)
+ReactDOM.render(
+    <Router>
+        <Routes>
+            <Route path="/" element={<App />} />
+            <Route path="/checkout" element={<Checkout />} />
+        </Routes>
+    </Router>,
+    document.getElementById('root')
+);

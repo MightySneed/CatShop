@@ -2,64 +2,80 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import { faker } from '@faker-js/faker';
 import Checkout from './Checkout'; 
+import { Link } from 'react-router-dom';
 
 function App() {
-    const [cat, setCats] = useState([]); //catslist init
-    
+    const [cat, setCats] = useState([]); // Cats list init
+    const [cartItems, setCartItems] = useState([]); // Cart items
 
+    // Fetching Data (Cat)
+    async function fetchCat() {
+        const res = await fetch('https://api.thecatapi.com/v1/images/search?limit=10');
+        const CatData = await res.json();
+        const UpCat = CatData.map((Cat) => {
+            return {
+                ...Cat,
+                CatBreed: faker.animal.cat(),
+                CatPrice: faker.commerce.price({ min: 100, max: 1200 }),
+                CatSex: faker.person.sex(), 
+                CatName: faker.person.firstName(),
+            };
+        });
+        setCats(UpCat);
+    }
 
-  // Fetching Data (Cat)
-  async function fetchCat() {
-    const res = await fetch('https://api.thecatapi.com/v1/images/search?limit=10')
-    const CatData = await res.json()
-    console.log(CatData)
-    const UpCat = CatData.map((Cat)=>{
-      return {
-        ...Cat,
-        CatBreed: faker.animal.cat(),
-        CatPrice: faker.commerce.price({min: 100, max: 1200}),
-        CatSex: faker.person.sex(), 
-        CatName: faker.person.firstName(),
-      }
-    })
-    console.log(UpCat)
-    setCats(UpCat);
-  }
-  useEffect(()=>{
-    fetchCat() 
-  },[])
+    useEffect(() => {
+        fetchCat();
+        const items = JSON.parse(localStorage.getItem('cartItems')) || [];
+        setCartItems(items); // Load cart items from localStorage on mount
+    }, []);
 
-  // Cat object constructed above
+    const toggleCartItem = (cat) => {
+        setCartItems((prev) => {
+            const isInCart = prev.find(item => item.id === cat.id);
 
-  return (
+            const newCart = isInCart
+                ? prev.filter(item => item.id !== cat.id) // Remove cat from cart
+                : [...prev, cat]; // Add cat to cart
 
-    <div className='wrapper'>
-          <div className='top' id="catcard">
-            <h1>Purrrrveyor of fine Cats</h1>
-            <div><button>Main</button>
-            <button>Checkout</button>
+            localStorage.setItem('cartItems', JSON.stringify(newCart));
+            return newCart; // Return the updated cart array
+        });
+    };
+
+    const total = cartItems.reduce((total, cat) => total + parseFloat(cat.CatPrice), 0).toFixed(2);
+
+    return (
+        <div className='wrapper'>
+            <div className='top' id="catcard">
+                <h1>Purrrrveyor of fine Cats</h1>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <span className="cart-total">Total: ${total}</span>
+                    <Link to="/checkout">
+                        <button>Checkout</button>
+                    </Link>
+                </div>
             </div>
+            <div id="catcard">
+            {cat.map((cat, index) => (
+              <div key={index} style={{ border: '1px solid #ccc', padding: '10px', margin: '10px' }}>
+                <img src={cat.url} alt={cat.CatName} style={{ width: '200px', height: '200px' }} />
+                <h3>{cat.CatName}</h3>
+                <div id="catcard">
+                <div>
+                <p>Breed: {cat.CatBreed}</p>
+                <p>Sex: {cat.CatSex}</p>
+                <p>Price: ${cat.CatPrice}</p>
+                </div>
+                <button onClick={() => toggleCartItem(cat)}>
+                {cartItems.find(item => item.id === cat.id) ? 'Remove from cart' : 'Add to cart!'}
+                </button>
+                </div>
+                </div>
+                ))}
             </div>
-      <div id="catcard">
-      {cat.map((cat, index) => (
-        <div  key={index} style={{ border: '1px solid #ccc', padding: '10px', margin: '10px' }}>
-          <img src={cat.url} alt={cat.CatName} style={{ width: '200px', height: '200px' }} />
-          <h3>{cat.CatName}</h3>
-          <div id="catcard">
-          <div>
-          <p>Breed: {cat.CatBreed}</p>
-          <p>Sex: {cat.CatSex}</p>
-          <p>Price: ${cat.CatPrice}</p>
-          </div>
-          <button onClick={console.log("chaching!")}>Add to cart!</button>
-          </div>
-
-        </div>
-      ))}
       </div>
-    </div>
-  );
+    );
 }
 
 export default App;
-
