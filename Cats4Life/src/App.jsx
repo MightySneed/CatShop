@@ -49,7 +49,7 @@ function App() {
     return (
         <div className='wrapper'>
             <div className='top' id="catcard">
-                <h1>Purrrrveyor of fine Cats</h1>
+                <h1 >Purrrrveyor of fine Cats</h1>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                     <span className="cart-total">Total: ${total}</span>
                     <Link to="/checkout">

@@ -64,11 +64,11 @@ const Checkout = () => {
         <div>
             <div className="header">
                 <Link to="/" onClick={handleHomeClick}> {/* Links Home button to the main App.jsx page. */}
-                    <button className="home-button">Home</button>
+                    <button className="home-button , Text-style">Home</button>
                 </Link>
             </div>
 
-            <h2>Checkout</h2>
+            <h2 class="Text-style">Checkout</h2>
             <div className="cart">
                 {cartItems.length > 0 ? (
                     cartItems.map((cat, index) => (
@@ -77,45 +77,45 @@ const Checkout = () => {
                             <div>
                                 <h3>{cat.CatName}</h3>
                                 <p>Price: ${cat.CatPrice}</p>
-                                <button class="button-style" onClick={() => handleRemoveItem(index)}>Reomve From Cart</button>
+                                <button class="button-style , Text-style" onClick={() => handleRemoveItem(index)}>Reomve From Cart</button>
                             </div>
                         </div>
                     ))
                 ) : (
-                    <p>Your cart is empty!</p>
+                    <p class="Text-style">Your cart is empty!</p>
                 )}
             </div>
             {/* Form For user details to be filled in to complete purchase */}
             <div className="total">
-                <h3>Total: ${cartItems.reduce((total, cat) => total + parseFloat(cat.CatPrice), 0).toFixed(2)}</h3>
+                <h3 class="Text-style">Total: ${cartItems.reduce((total, cat) => total + parseFloat(cat.CatPrice), 0).toFixed(2)}</h3>
             </div>
 
             <form onSubmit={(e) => { e.preventDefault(); handleCheckout(); }}>
                 <div>
-                    <label>Full Name:</label>
+                    <label class="Text-style">Full Name:</label>
                     <input class="form-labels" type="text" name="name" value={formData.name} onChange={handleChange} required />
                 </div>
                 <div>
-                    <label>Long Card Number:</label>
+                    <label class="Text-style">Long Card Number:</label>
                     <input class="form-labels" type="text" name="cardNumber" value={formData.cardNumber} onChange={handleChange} required />
                 </div>
                 <div>
-                    <label>CCV:</label>
+                    <label class="Text-style">CCV:</label>
                     <input class="form-labels" type="text" name="ccv" value={formData.ccv} onChange={handleChange} required />
                 </div>
                 <div>
-                    <label>Expiry Date (MM/YY):</label>
+                    <label class="Text-style">Expiry Date (MM/YY):</label>
                     <input class="form-labels" type="text" name="expiryDate" value={formData.expiryDate} onChange={handleChange} required />
                 </div>
                 <div>
-                    <label>Email:</label>
+                    <label class="Text-style">Email:</label>
                     <input class="form-labels" type="email" name="email" value={formData.email} onChange={handleChange} required />
                 </div>
                 <div>
-                    <label>Phone Number:</label>
+                    <label class="Text-style">Phone Number:</label>
                     <input class="form-labels" type="text" name="phone" value={formData.phone} onChange={handleChange} required />
                 </div>
-                <button class="button-style2" submit>Checkout</button>
+                <button class="button-style2 , Text-style" submit>Checkout</button>
             </form>
         </div>
     );

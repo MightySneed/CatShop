@@ -5,14 +5,12 @@
 }
 
 .home-button {
-  background-color: #5500df; 
-  color: rgb(0, 0, 0); 
+  background-color: #5500df;  
   border: none;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  font-size: 25px;
   box-shadow: 0px 4px 10px black;
   border-radius: 5px;
 }
@@ -95,3 +93,9 @@ button.button-style2 {
   margin-top: 5px;
 }
 
+.Text-style {
+  font-size: 20px;
+  font-family:Helvetica;
+  color: black;
+  font-weight: bold;
+}
