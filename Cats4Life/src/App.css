@@ -17,6 +17,7 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -78,4 +79,14 @@ text-align: center;
 align-self: center;
 flex-grow: 1;
 margin: 0 auto;
+}
+.cart-total {
+  margin-right: 20px; /* Add some space on the right */
+  font-size: 18px; /* Increase font size if desired */
+}
+
+body {
+  background-image: url("https://i.ibb.co/dQhTP40/Cat-Shop-Logo.png");
+  background-repeat: no-repeat;
+  align-content: right;
 }
