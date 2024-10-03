@@ -8,6 +8,9 @@ function App() {
   const [items, setItems] = useState([]);
   const [message, setMessage] = useState("");
   const [completedCount, setCompletedCount] = useState(0);
+  const CatList = () => {
+    const [cat, setCats] = useState([]); //catslist init
+  }
 
   useEffect(() => {
     setCompletedCount(items.filter(item => item.completed).length);
@@ -25,40 +28,19 @@ function App() {
         CatPrice: faker.commerce.price({min: 100, max: 1200}),
         CatSex: faker.person.sex(), 
         CatName: faker.person.firstName(),
-
-
       }
     })
     console.log(UpCat)
+    setCats(UpCat);
   }
   useEffect(()=>{
     fetchCat() 
   },[])
 
-  // //Faker introduced here
-  // const CatBreed = faker.animal.cat() // Generate Cat breed
-  // const CatPrice = faker.commerce.price({min: 100, max: 1200}) // Generate Cat Breed
-  // const CatSex = faker.person.sex(); // Generate Cat Sex
-  // const CatName = faker.person.firstName(CatSex); // Generate Human First name for the cat
-  // //const CatQuirk = 
-  // console.log(CatName)
-  // console.log(CatSex)
-  // console.log(CatBreed)
-  // console.log(CatPrice)
-  
-  //Faker variables -end
+  // Cat object constructed above
 
-  // class Cat {
-  //   constructor(name, price, sex, breed) {
-  //     this.name = CatName
-  //     this.price = CatPrice
-  //     this.sex = CatSex
-  //     this.breed = CatBreed
-  //   }
-  // }
-  // //Cat Constructor
 
-  //Constructor End
+
 
   const addItem = () => {
     if (message.trim() !== "") {
@@ -111,11 +93,17 @@ function App() {
           ))}
         </ul>
       </div>
-      <div id='counter'>
-        <p>Tasks Started: {items.length}</p>
-        <p>Tasks Completed: {completedCount}</p>
-        <button onClick={resetList}>Reset</button>
-      </div>
+      {/* { <div>
+      {UpCat.map((cat, index) => (
+        <div key={index} style={{ border: '1px solid #ccc', padding: '10px', margin: '10px' }}>
+          <img src={cat.url} alt={cat.CatName} style={{ width: '200px', height: '200px' }} />
+          <h3>{cat.CatName}</h3>
+          <p>Breed: {cat.CatBreed}</p>
+          <p>Sex: {cat.CatSex}</p>
+          <p>Price: ${cat.CatPrice}</p>
+        </div>
+      ))}
+    </div>} */}
     </div>
   );
 }
