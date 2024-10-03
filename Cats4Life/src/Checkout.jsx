@@ -1,8 +1,9 @@
+import { Link } from 'react-router-dom';
 import './Checkout.css';
 import { useEffect, useState } from 'react';
 
 const Checkout = () => {
-    const [cartItems, setCartItems] = useState([]); // Cart items
+    const [cartItems, setCartItems] = useState([]); // Cart items   
     const [formData, setFormData] = useState({
         name: '',
         cardNumber: '',
@@ -11,7 +12,9 @@ const Checkout = () => {
         email: '',
         phone: '',
     });
-
+    <Link to="/App.jsx">
+  <button>Home</button>
+  </Link>
     // Function to retrieve cart items from localStorage
     const getCartItems = () => {
         const items = localStorage.getItem('cartItems');
@@ -34,23 +37,23 @@ const Checkout = () => {
 
     // Func to handle when "Proceed to Payment" button is clicked
     const handleCheckout = () => {
-        alert("Thank you for your purchase!");
+        alert("Thank you for your puurrrchase!");
         
     };
 
     return (
         <div>
-            <h2>Checkout</h2>
-            <div className="cart">
-                {cartItems.length > 0 ? (
-                    cartItems.map((cat, index) => (
-                        <div key={index} className="cart-item">
-                            <img src={cat.url} alt={cat.CatName} />
-                            <div>
-                                <h3>{cat.CatName}</h3>
-                                <p>Price: ${cat.CatPrice}</p>
-                            </div>
-                        </div>
+          <h2>Checkout</h2>
+          <div className="cart">
+            {cartItems.length > 0 ? (
+              cartItems.map((cat, index) => (
+                 <div key={index} className="cart-item">
+                  <img src={cat.url} alt={cat.CatName} />
+                      <div>
+                        <h3>{cat.CatName}</h3>
+                          <p>Price: ${cat.CatPrice}</p>
+                         </div>
+                     </div>
                     ))
                 ) : (
                     <p>Your cart is empty!</p>
