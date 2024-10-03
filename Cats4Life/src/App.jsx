@@ -53,7 +53,7 @@ function App() {
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                     <span className="cart-total">Total: ${total}</span>
                     <Link to="/checkout">
-                        <button>Checkout</button>
+                        <button class="button-style">Checkout</button>
                     </Link>
                 </div>
             </div>
@@ -68,7 +68,7 @@ function App() {
                 <p>Sex: {cat.CatSex}</p>
                 <p>Price: ${cat.CatPrice}</p>
                 </div>
-                <button onClick={() => toggleCartItem(cat)}>
+                <button class="add-cart"onClick={() => toggleCartItem(cat)}>
                 {cartItems.find(item => item.id === cat.id) ? 'Remove from cart' : 'Add to cart!'}
                 </button>
                 </div>

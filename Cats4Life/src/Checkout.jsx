@@ -52,6 +52,12 @@ const Checkout = () => {
             phone: '',
         });
     };
+     // Function to remove an item from the cart
+    const handleRemoveItem = (indexToRemove) => {
+        const updatedCartItems = cartItems.filter((_, index) => index !== indexToRemove);
+        setCartItems(updatedCartItems);
+        localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+    };
 
     //Home button sends you back to main page and clear cart and form
     return (
@@ -71,6 +77,7 @@ const Checkout = () => {
                             <div>
                                 <h3>{cat.CatName}</h3>
                                 <p>Price: ${cat.CatPrice}</p>
+                                <button class="button-style" onClick={() => handleRemoveItem(index)}>Reomve From Cart</button>
                             </div>
                         </div>
                     ))
@@ -86,29 +93,29 @@ const Checkout = () => {
             <form onSubmit={(e) => { e.preventDefault(); handleCheckout(); }}>
                 <div>
                     <label>Full Name:</label>
-                    <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+                    <input class="form-labels" type="text" name="name" value={formData.name} onChange={handleChange} required />
                 </div>
                 <div>
                     <label>Long Card Number:</label>
-                    <input type="text" name="cardNumber" value={formData.cardNumber} onChange={handleChange} required />
+                    <input class="form-labels" type="text" name="cardNumber" value={formData.cardNumber} onChange={handleChange} required />
                 </div>
                 <div>
                     <label>CCV:</label>
-                    <input type="text" name="ccv" value={formData.ccv} onChange={handleChange} required />
+                    <input class="form-labels" type="text" name="ccv" value={formData.ccv} onChange={handleChange} required />
                 </div>
                 <div>
                     <label>Expiry Date (MM/YY):</label>
-                    <input type="text" name="expiryDate" value={formData.expiryDate} onChange={handleChange} required />
+                    <input class="form-labels" type="text" name="expiryDate" value={formData.expiryDate} onChange={handleChange} required />
                 </div>
                 <div>
                     <label>Email:</label>
-                    <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+                    <input class="form-labels" type="email" name="email" value={formData.email} onChange={handleChange} required />
                 </div>
                 <div>
                     <label>Phone Number:</label>
-                    <input type="text" name="phone" value={formData.phone} onChange={handleChange} required />
+                    <input class="form-labels" type="text" name="phone" value={formData.phone} onChange={handleChange} required />
                 </div>
-                <button type="submit">Checkout</button>
+                <button class="button-style2" submit>Checkout</button>
             </form>
         </div>
     );

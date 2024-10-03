@@ -13,10 +13,12 @@
   text-decoration: none;
   cursor: pointer;
   font-size: 25px;
+  box-shadow: 0px 4px 10px black;
+  border-radius: 5px;
 }
 
 .home-button:hover {
-  background-color: #45a049; /* Darker green on hover */
+  background-color:  #4804b6;
 }
 
 .cart {
@@ -40,3 +42,56 @@
   margin-top: 20px;
   font-size: 18px;
 }
+
+.rnd-shdw {
+  box-shadow: 0px 4px 10px black;
+  border-radius: 5px;
+}
+
+body {
+  background-color: lightblue;
+}
+
+button.button-style {
+  background-color: #5500df;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 15px;
+  box-shadow: 0px 4px 10px black;
+  border-radius: 5px;
+}
+
+button.button-style2 {
+  background-color: #5500df;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 15px;
+  box-shadow: 0px 4px 10px black;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.button-style:hover {
+  background-color:  #4804b6;
+}
+
+.button-style2:hover {
+  background-color:  #4804b6;
+}
+
+.form-labels {
+  box-shadow: 0px 4px 10px black;
+  border-radius: 5px;
+  background-color: #5500df;
+  padding: 5px;
+  margin-top: 5px;
+}
+
