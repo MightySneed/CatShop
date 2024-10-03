@@ -1,0 +1,22 @@
+.cart {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .cart-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .cart-item img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .total {
+    margin-top: 20px;
+    font-size: 18px;
+  }
+  

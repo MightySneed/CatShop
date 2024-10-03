@@ -1,11 +1,11 @@
-
-
 import './App.css';
 import { useState, useEffect } from 'react';
 import { faker } from '@faker-js/faker';
+import Checkout from './Checkout'; 
 
 function App() {
     const [cat, setCats] = useState([]); //catslist init
+    
 
 
   // Fetching Data (Cat)
