@@ -33,7 +33,7 @@ function App() {
 
   return (
     <div className='wrapper'>
-      <div>
+
       {cat.map((cat, index) => (
         <div key={index} style={{ border: '1px solid #ccc', padding: '10px', margin: '10px' }}>
           <img src={cat.url} alt={cat.CatName} style={{ width: '200px', height: '200px' }} />
@@ -43,7 +43,6 @@ function App() {
           <p>Price: ${cat.CatPrice}</p>
         </div>
       ))}
-    </div>
     </div>
   );
 }
