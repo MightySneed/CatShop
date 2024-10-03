@@ -32,17 +32,31 @@ function App() {
   // Cat object constructed above
 
   return (
-    <div className='wrapper'>
 
+    <div className='wrapper'>
+          <div className='top' id="catcard">
+            <h1>Purrrrveyor of fine Cats</h1>
+            <div><button>Main</button>
+            <button>Checkout</button>
+            </div>
+            </div>
+      <div id="catcard">
       {cat.map((cat, index) => (
-        <div key={index} style={{ border: '1px solid #ccc', padding: '10px', margin: '10px' }}>
+        <div  key={index} style={{ border: '1px solid #ccc', padding: '10px', margin: '10px' }}>
           <img src={cat.url} alt={cat.CatName} style={{ width: '200px', height: '200px' }} />
           <h3>{cat.CatName}</h3>
+          <div id="catcard">
+          <div>
           <p>Breed: {cat.CatBreed}</p>
           <p>Sex: {cat.CatSex}</p>
           <p>Price: ${cat.CatPrice}</p>
+          </div>
+          <button onClick={console.log("chaching!")}>Add to cart!</button>
+          </div>
+
         </div>
       ))}
+      </div>
     </div>
   );
 }
