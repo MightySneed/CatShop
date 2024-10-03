@@ -13,12 +13,13 @@ function App() {
         const res = await fetch('https://api.thecatapi.com/v1/images/search?limit=10');
         const CatData = await res.json();
         const UpCat = CatData.map((Cat) => {
-            return {
-                ...Cat,
-                CatBreed: faker.animal.cat(),
-                CatPrice: faker.commerce.price({ min: 100, max: 1200 }),
-                CatSex: faker.person.sex(), 
-                CatName: faker.person.firstName(),
+          const CatSex = faker.person.sex();
+          return {
+              ...Cat,
+              CatBreed: faker.animal.cat(),
+              CatPrice: faker.commerce.price({ min: 100, max: 1200 }),
+              CatSex: CatSex,
+              CatName: faker.person.firstName(CatSex),
             };
         });
         setCats(UpCat);
@@ -27,7 +28,7 @@ function App() {
     useEffect(() => {
         fetchCat();
         const items = JSON.parse(localStorage.getItem('cartItems')) || [];
-        setCartItems(items); // Load cart items from localStorage on mount
+        setCartItems(items); // Load cart items from localStorage
     }, []);
 
     const toggleCartItem = (cat) => {
@@ -39,7 +40,7 @@ function App() {
                 : [...prev, cat]; // Add cat to cart
 
             localStorage.setItem('cartItems', JSON.stringify(newCart));
-            return newCart; // Return the updated cart array
+            return newCart; // Returns updated cart array
         });
     };
 
