@@ -69,46 +69,60 @@
  justify-content: space-between;
  background-color: rgb(255, 255, 255, 0.4);;
 }
- 
+
+#catcards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: rgb(255, 255, 255, 0.4);;
+  margin: 2%;
+  padding: 2%
+ }
+
+ #wrapcat {
+  width: 20%;
+  box-sizing: border-box;
+ }
+
 .top {
+
+overflow: auto;
 display: flex;
-flex-direction: row;
-align-self: flex-start;
-justify-content: space-between;
-justify-items: center;
+flex-direction: column;
+justify-content: center;
 text-align: center;
-align-self: center;
+align-items: flex-start;
+min-height: 400px;
 flex-grow: 1;
-margin: 1% auto;
+
+margin: 0;
 background-color: rgb(255, 255, 255, 0.4);;
+background-image: url("https://i.ibb.co/dQhTP40/Cat-Shop-Logo.png");
+background-repeat: no-repeat;
+background-position: top right;
+background-size: auto 100%;
+padding: 0;
 }
 .cart-total {
   margin-right: 20px; /* Add some space on the right */
   font-size: 18px; /* Increase font size if desired */
 }
- 
-body {
-  display: flex;
-  background-image: url("https://i.ibb.co/dQhTP40/Cat-Shop-Logo.png");
-  background-repeat: no-repeat;
-  background-position: top right;
-  background-size: 30%;
-  background-color: rgb(31, 28, 32);
- 
-}
- 
-div {
- 
-  width: fit-content;
-  block-size: fit-content;
-  height: fit-content;
-  margin: 2%;
-  padding: 2%;
- 
-}
- 
+
 h1 {
-  font-size: 600 px;
+  font-size: 5em;
   font-weight: bolder;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  transform: scaleY(2);
 }
+
+h3 {
+  background-color: #31282e;
+  color: aliceblue;
+  margin: 0;
+}
+
+body {
+  background-color: rgb(134, 127, 134);
+}
+

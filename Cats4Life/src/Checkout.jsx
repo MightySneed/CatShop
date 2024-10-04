@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom'; 
 import './Checkout.css';
 import { useEffect, useState } from 'react';
@@ -40,6 +41,7 @@ const Checkout = () => {
        
     };
 
+
     // Function to handle "Home" button click (clear cart and form)
     const handleHomeClick = () => {
         localStorage.removeItem('cartItems'); // Clear cart items from localStorage
@@ -53,6 +55,7 @@ const Checkout = () => {
             phone: '',
         });
     };
+
      // Function to remove an item from the cart
     const handleRemoveItem = (indexToRemove) => {
         const updatedCartItems = cartItems.filter((_, index) => index !== indexToRemove);
@@ -74,15 +77,19 @@ const Checkout = () => {
                 {cartItems.length > 0 ? (
                     cartItems.map((cat, index) => (
                         <div key={index} class="cart-item">
+
                             <img src={cat.url} alt={cat.CatName} />
                             <div>
                                 <h3>{cat.CatName}</h3>
                                 <p>Price: ${cat.CatPrice}</p>
+
                                 <button class="button-style Text-style" onClick={() => handleRemoveItem(index)}>Remove From Cart</button>
+
                             </div>
                         </div>
                     ))
                 ) : (
+
                     <p class="Text-style">Your cart is empty!</p>
                 )}
             </div>
@@ -124,3 +131,4 @@ const Checkout = () => {
 };
 
 export default Checkout;
+
