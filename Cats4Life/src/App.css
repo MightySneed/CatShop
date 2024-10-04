@@ -3,7 +3,7 @@
   text-align: center;
   background-color: none;
 }
-
+ 
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -16,7 +16,8 @@
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
-
+ 
+ 
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -25,25 +26,25 @@
     transform: rotate(360deg);
   }
 }
-
+ 
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
 }
-
+ 
 .card {
   padding: 2em;
 }
-
+ 
 .read-the-docs {
   color: #888;
 }
-
+ 
 .funky {
   background-color: red;
 }
-
+ 
 .wrapper {
   display: flex;
   max-width: 80%;
@@ -60,7 +61,7 @@
   background-color: none;
   background-color: rgb(255, 255, 255, 0.4);;
 }
-
+ 
 #catcard {
  display: flex;
  flex-direction: row;
@@ -94,6 +95,7 @@ text-align: center;
 align-items: flex-start;
 min-height: 400px;
 flex-grow: 1;
+
 margin: 0;
 background-color: rgb(255, 255, 255, 0.4);;
 background-image: url("https://i.ibb.co/dQhTP40/Cat-Shop-Logo.png");
@@ -101,15 +103,11 @@ background-repeat: no-repeat;
 background-position: top right;
 background-size: auto 100%;
 padding: 0;
-
 }
 .cart-total {
   margin-right: 20px; /* Add some space on the right */
   font-size: 18px; /* Increase font size if desired */
 }
-
-
-
 
 h1 {
   font-size: 5em;

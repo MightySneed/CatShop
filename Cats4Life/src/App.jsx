@@ -1,12 +1,14 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import { faker } from '@faker-js/faker';
+
 import Checkout from './Checkout'; 
 import { Link } from 'react-router-dom';
 
 function App() {
     const [cat, setCats] = useState([]); // Cats list init
     const [cartItems, setCartItems] = useState([]); // Cart items
+
 
     // Fetching Data (Cat)
     async function fetchCat() {
@@ -18,7 +20,8 @@ function App() {
                 ...Cat,
                 CatBreed: faker.animal.cat(),
                 CatPrice: faker.commerce.price({ min: 100, max: 1200 }),
-                CatSex: CatSex, 
+
+                CatSex: CatSex,
                 CatName: faker.person.firstName(CatSex),
             };
         });
@@ -31,6 +34,7 @@ function App() {
         setCartItems(items); // Load cart items from localStorage on mount
     }, []);
 
+
     const toggleCartItem = (cat) => {
         setCartItems((prev) => {
             const isInCart = prev.find(item => item.id === cat.id);
@@ -38,6 +42,7 @@ function App() {
             const newCart = isInCart
                 ? prev.filter(item => item.id !== cat.id) // Remove cat from cart
                 : [...prev, cat]; // Add cat to cart
+
 
             localStorage.setItem('cartItems', JSON.stringify(newCart));
             return newCart; // Return the updated cart array
@@ -49,6 +54,7 @@ function App() {
     return (
         <div className='wrapper'>
             <div className='top' >
+
                 <h1>Purrrrveyor of fine Cats</h1>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                     <span className="cart-total">Total: ${total}</span>
@@ -57,10 +63,12 @@ function App() {
                     </Link>
                 </div>
             </div>
+
             <div id="catcards">
             {cat.map((cat, index) => (
               <div id="wrapcat" key={index}>
                 <img src={cat.url} alt={cat.CatName} style={{ width: '100%', height: '200px', objectFit: `cover`}} />
+
                 <h3>{cat.CatName}</h3>
                 <div id="catcard">
                 <div>

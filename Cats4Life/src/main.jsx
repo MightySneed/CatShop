@@ -5,6 +5,7 @@ import App from './App';
 import Checkout from './Checkout';
 import './index.css'
 
+
 ReactDOM.render(
     <Router>
         <Routes>
