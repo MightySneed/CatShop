@@ -1,7 +1,7 @@
 #root {
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  background-color: none;
 }
 
 .logo {
@@ -52,13 +52,14 @@
   flex-direction: row;
   justify-content: space-between;
   justify-items: center;
-  border: solid 5px; color: black; 
   text-align: center;
   align-self: center;
   flex-grow: 1;
-  padding: 4rem;
+  padding: 0 auto;
   flex-wrap: wrap;
   margin: 0 auto;
+  background-color: none;
+  background-color: rgb(255, 255, 255, 0.4);;
 }
 
 #catcard {
@@ -66,6 +67,7 @@
  flex-direction: row;
  flex-wrap: wrap;
  justify-content: space-between;
+ background-color: rgb(255, 255, 255, 0.4);;
 }
 
 .top {
@@ -74,11 +76,11 @@ flex-direction: row;
 align-self: flex-start;
 justify-content: space-between;
 justify-items: center;
-border: solid 5px; color: black; 
 text-align: center;
 align-self: center;
 flex-grow: 1;
-margin: 0 auto;
+margin: 1% auto;
+background-color: rgb(255, 255, 255, 0.4);;
 }
 .cart-total {
   margin-right: 20px; /* Add some space on the right */
@@ -86,7 +88,27 @@ margin: 0 auto;
 }
 
 body {
+  display: flex;
   background-image: url("https://i.ibb.co/dQhTP40/Cat-Shop-Logo.png");
   background-repeat: no-repeat;
-  align-content: right;
+  background-position: top right;
+  background-size: 30%;
+  background-color: rgb(31, 28, 32);
+
+}
+
+div {
+
+  width: fit-content;
+  block-size: fit-content;
+  height: fit-content;
+  margin: 2%;
+  padding: 2%;
+  
+}
+
+h1 {
+  font-size: 600 px;
+  font-weight: bolder;
+  font-family: 'Courier New', Courier, monospace;
 }
