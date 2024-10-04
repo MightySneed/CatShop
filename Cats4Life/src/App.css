@@ -1,9 +1,9 @@
 #root {
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  background-color: none;
 }
-
+ 
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -16,7 +16,8 @@
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
-
+ 
+ 
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -25,25 +26,25 @@
     transform: rotate(360deg);
   }
 }
-
+ 
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
 }
-
+ 
 .card {
   padding: 2em;
 }
-
+ 
 .read-the-docs {
   color: #888;
 }
-
+ 
 .funky {
   background-color: red;
 }
-
+ 
 .wrapper {
   display: flex;
   max-width: 80%;
@@ -51,36 +52,63 @@
   flex-direction: row;
   justify-content: space-between;
   justify-items: center;
-  border: solid 5px; color: black; 
   text-align: center;
   align-self: center;
   flex-grow: 1;
-  padding: 4rem;
+  padding: 0 auto;
   flex-wrap: wrap;
   margin: 0 auto;
+  background-color: none;
+  background-color: rgb(255, 255, 255, 0.4);;
 }
-
+ 
 #catcard {
  display: flex;
  flex-direction: row;
  flex-wrap: wrap;
  justify-content: space-between;
+ background-color: rgb(255, 255, 255, 0.4);;
 }
-
+ 
 .top {
 display: flex;
 flex-direction: row;
 align-self: flex-start;
 justify-content: space-between;
 justify-items: center;
-border: solid 5px; color: black; 
 text-align: center;
 align-self: center;
 flex-grow: 1;
-margin: 0 auto;
+margin: 1% auto;
+background-color: rgb(255, 255, 255, 0.4);;
 }
-
 .cart-total {
   margin-right: 20px; /* Add some space on the right */
   font-size: 18px; /* Increase font size if desired */
+}
+ 
+body {
+  display: flex;
+  background-image: url("https://i.ibb.co/dQhTP40/Cat-Shop-Logo.png");
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: 30%;
+  background-color: rgb(31, 28, 32);
+ 
+}
+ 
+div {
+ 
+  width: fit-content;
+  block-size: fit-content;
+  height: fit-content;
+  margin: 2%;
+  padding: 2%;
+ 
+}
+ 
+h1 {
+  font-size: 600 px;
+  font-weight: bolder;
+  font-family: 'Courier New', Courier, monospace;
 }

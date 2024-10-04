@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import './Checkout.css';
 import { useEffect, useState } from 'react';
 
+
 const Checkout = () => {
     const [cartItems, setCartItems] = useState([]); // Cart items   
     const [formData, setFormData] = useState({
@@ -52,65 +53,73 @@ const Checkout = () => {
             phone: '',
         });
     };
+     // Function to remove an item from the cart
+    const handleRemoveItem = (indexToRemove) => {
+        const updatedCartItems = cartItems.filter((_, index) => index !== indexToRemove);
+        setCartItems(updatedCartItems);
+        localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+    };
 
-    //Home button sends you back to main page and clear cart and form
+    //Home button sends you back to main page and clears cart and form
     return (
-        <div>
-            <div className="header">
+        <div class="checkout-page"> {/* Added a wrapper class */}
+            <div class="header">
                 <Link to="/" onClick={handleHomeClick}> {/* Links Home button to the main App.jsx page. */}
-                    <button className="home-button">Home</button>
+                    <button class="home-button Text-style">Home</button>
                 </Link>
             </div>
 
-            <h2>Checkout</h2>
-            <div className="cart">
+            <h2 class="Text-style">Checkout</h2>
+            <div class="cart">
                 {cartItems.length > 0 ? (
                     cartItems.map((cat, index) => (
-                        <div key={index} className="cart-item">
+                        <div key={index} class="cart-item">
                             <img src={cat.url} alt={cat.CatName} />
                             <div>
                                 <h3>{cat.CatName}</h3>
                                 <p>Price: ${cat.CatPrice}</p>
+                                <button class="button-style Text-style" onClick={() => handleRemoveItem(index)}>Remove From Cart</button>
                             </div>
                         </div>
                     ))
                 ) : (
-                    <p>Your cart is empty!</p>
+                    <p class="Text-style">Your cart is empty!</p>
                 )}
             </div>
             {/* Form For user details to be filled in to complete purchase */}
-            <div className="total">
-                <h3>Total: ${cartItems.reduce((total, cat) => total + parseFloat(cat.CatPrice), 0).toFixed(2)}</h3>
+            <div class="total">
+                <h3 class="Text-style">Total: ${cartItems.reduce((total, cat) => total + parseFloat(cat.CatPrice), 0).toFixed(2)}</h3>
             </div>
 
             <form onSubmit={(e) => { e.preventDefault(); handleCheckout(); }}>
-                <div>
-                    <label>Full Name:</label>
-                    <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+                <div class="form-group">
+                    <label class="Text-style">Full Name:</label>
+                    <input class="form-labels" type="text" name="name" value={formData.name} onChange={handleChange} required />
                 </div>
-                <div>
-                    <label>Long Card Number:</label>
-                    <input type="text" name="cardNumber" value={formData.cardNumber} onChange={handleChange} required />
+                <div class="form-group">
+                    <label class="Text-style">Long Card Number:</label>
+                    <input class="form-labels" type="text" name="cardNumber" value={formData.cardNumber} onChange={handleChange} required />
                 </div>
-                <div>
-                    <label>CCV:</label>
-                    <input type="text" name="ccv" value={formData.ccv} onChange={handleChange} required />
+                <div class="form-group">
+                    <label class="Text-style">CCV:</label>
+                    <input class="form-labels" type="text" name="ccv" value={formData.ccv} onChange={handleChange} required />
                 </div>
-                <div>
-                    <label>Expiry Date (MM/YY):</label>
-                    <input type="text" name="expiryDate" value={formData.expiryDate} onChange={handleChange} required />
+                <div class="form-group">
+                    <label class="Text-style">Expiry Date (MM/YY):</label>
+                    <input class="form-labels" type="text" name="expiryDate" value={formData.expiryDate} onChange={handleChange} required />
                 </div>
-                <div>
-                    <label>Email:</label>
-                    <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+                <div class="form-group">
+                    <label class="Text-style">Email:</label>
+                    <input class="form-labels" type="email" name="email" value={formData.email} onChange={handleChange} required />
                 </div>
-                <div>
-                    <label>Phone Number:</label>
-                    <input type="text" name="phone" value={formData.phone} onChange={handleChange} required />
+                <div class="form-group">
+                    <label class="Text-style">Phone Number:</label>
+                    <input class="form-labels" type="text" name="phone" value={formData.phone} onChange={handleChange} required />
                 </div>
-                <button type="submit">Checkout</button>
+                <button class="button-style2 Text-style" submit>Checkout</button>
             </form>
         </div>
+        
     );
 };
 
