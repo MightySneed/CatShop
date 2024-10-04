@@ -1,10 +1,10 @@
-.header {
+.checkout-page .header {
   display: flex;
   justify-content: flex-start;
   padding: 10px;
 }
 
-.home-button {
+.checkout-page .home-button {
   background-color: #5500df;  
   border: none;
   padding: 10px 20px;
@@ -15,39 +15,38 @@
   border-radius: 5px;
 }
 
-.home-button:hover {
+.checkout-page .home-button:hover {
   background-color:  #4804b6;
 }
 
-.cart {
+.checkout-page .cart {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.cart-item {
+.checkout-page .cart-item {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-.cart-item img {
+.checkout-page .cart-item img {
   width: 100px;
   height: 100px;
 }
 
-.total {
+.checkout-page .total {
   margin-top: 20px;
   font-size: 18px;
 }
 
-.rnd-shdw {
+.checkout-page .rnd-shdw {
   box-shadow: 0px 4px 10px black;
   border-radius: 5px;
 }
 
-
-button.button-style {
+.checkout-page button.button-style {
   background-color: #5500df;
   color: rgb(0, 0, 0);
   border: none;
@@ -60,7 +59,7 @@ button.button-style {
   border-radius: 5px;
 }
 
-button.button-style2 {
+.checkout-page button.button-style2 {
   background-color: #5500df;
   color: rgb(0, 0, 0);
   border: none;
@@ -74,15 +73,15 @@ button.button-style2 {
   margin-top: 10px;
 }
 
-.button-style:hover {
+.checkout-page .button-style:hover {
   background-color:  #4804b6;
 }
 
-.button-style2:hover {
+.checkout-page .button-style2:hover {
   background-color:  #4804b6;
 }
 
-.form-labels {
+.checkout-page .form-labels {
   box-shadow: 0px 4px 10px black;
   border-radius: 5px;
   background-color: #5500df;
@@ -90,9 +89,42 @@ button.button-style2 {
   margin-top: 5px;
 }
 
-.Text-style {
+.checkout-page .Text-style {
   font-size: 20px;
-  font-family:Helvetica;
+  font-family: Helvetica;
   color: black;
   font-weight: bold;
+}
+
+
+.checkout-page .form-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.checkout-page .form-group label {
+  width: 30%;
+  text-align: left;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.checkout-page .form-group input {
+  width: 65%;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.checkout-page div {
+  width: fit-content;
+  height: fit-content;
+  margin: 2%;
+  padding: 2%;
+}
+
+.checkout-page h1, .checkout-page h2, .checkout-page h3 {
+  margin: 0; /* Reset margin to prevent global styles from applying */
 }
