@@ -67,7 +67,7 @@
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 25px;
   box-shadow: 0px 4px 10px black;
   border-radius: 5px;
   margin-top: 10px;
@@ -87,6 +87,10 @@
   background-color: #5500df;
   padding: 5px;
   margin-top: 5px;
+  font-size: 20px;
+  font-family: Helvetica;
+  font-weight: bold;
+  color:black;
 }
 
 .checkout-page .Text-style {
