@@ -48,7 +48,7 @@ function App() {
 
     return (
         <div className='wrapper'>
-            <div className='top' id="catcard">
+            <div className='top' >
                 <h1>Purrrrveyor of fine Cats</h1>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                     <span className="cart-total">Total: ${total}</span>
@@ -57,10 +57,10 @@ function App() {
                     </Link>
                 </div>
             </div>
-            <div id="catcard">
+            <div id="catcards">
             {cat.map((cat, index) => (
-              <div key={index} style={{ border: '1px solid #ccc', padding: '10px', margin: '10px' }}>
-                <img src={cat.url} alt={cat.CatName} style={{ width: '200px', height: '200px' }} />
+              <div id="wrapcat" key={index}>
+                <img src={cat.url} alt={cat.CatName} style={{ width: '100%', height: '200px', objectFit: `cover`}} />
                 <h3>{cat.CatName}</h3>
                 <div id="catcard">
                 <div>
